@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+#wrapper{
+	width:910px;
+	height:auto;
+	text-align : center
+}	
+
+table{
+	width:900px;
+	border-spacing: 0;
+	
+}
+
+tr{
+	border : 1px solid black;
+}
+
+td{
+	border : 1px solid black;
+}
+
+ th{
+	background-color:gray;
+	height:25px;
+}  
+
+
+</style>
+<script src="script/jquery-3.1.0.min.js"></script>
+
+<script>
+	
+$(document).ready(function(){
+		
+	$('#regist').click(function(){
+		var name = $('input:text').val();
+		var region = $('select>option:selected').val();
+		var gender = $('input:radio:checked').val();
+		var list = '';
+		var hobby = $('input:checkbox:checked');
+		
+		
+		
+		hobby.each(function(index,item){
+			if(hobby.length==index+1){
+				list += $(item).val();
+			}else{
+				list += $(item).val() + ',';
+			}
+			
+		});
+		
+		var output ='';
+		
+		if(name==''){
+			alert('데이터를 입력하세요');
+		}else{
+			
+			output +=  '<tr>' + '<td>'+ name + '</td>'
+			+ '<td>'+ region + '</td>'
+			+ '<td>'+ gender + '</td>'
+			+ '<td>'+ list + '</td>'
+			+'<td><input type="button" value="삭제" onclick="delRow(this)" /></td>'+
+			'</tr>';
+			
+			$('#target').append(output);
+			
+			$('#resetdata').trigger('click');		
+		}
+		
+	});
+	
+});
+	
+function delRow(btn) {
+	$(btn).parent().parent().remove();
+}
+	
+	
+</script>
+</head>
+<body>
+<div id="wrapper">
+<h2>고객 정보 등록하기</h2>
+<form action="" method="post" >
+	<table>
+		<tr>
+			<th>이름</th>
+			<th>사는 지역</th>
+			<th>성별</th>
+			<th>취미</th>
+		</tr>
+		<tr>
+			<td><input type="text" name="name" /></td>
+			<td>
+				<select name="region">
+					<option value="Seoul">서울</option>
+					<option value="Busan">부산</option>
+					<option value="Daegu">대구</option>
+					<option value="Incheon">인천</option>
+					<option value="Jeju">제주</option>
+				</select>
+			</td>
+			<td>
+				<input type="radio" name="gender" value="man" checked="checked"/>남자 &nbsp;
+				<input type="radio" name="gender" value="woman" />여자
+			</td>
+			<td>
+				<input type="checkbox" name="hobby" value="climbing" checked="checked"/>등산
+				<input type="checkbox" name="hobby" value="Reading" />독서
+				<input type="checkbox" name="hobby" value="Swimming" />수영
+				<input type="checkbox" name="hobby" value="Ridding" />자전거타기
+				<input type="checkbox" name="hobby" value="Sleeping" />잠자기		
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4" >
+				<input id="regist" type="button" value="등록" />
+				<input id="resetdata" type="reset" value="취소" />
+			</td>
+		</tr>
+	</table>
+</form>
+<hr />
+<h2>등록된 고객 정보</h2>
+	<table id="target">
+		<tr>
+			<th>이름</th>
+			<th>사는 지역</th>
+			<th>성별</th>
+			<th>취미</th>
+			<th>비고</th>
+			
+		</tr>
+
+	</table>
+</div>
+</body>
+</html>
