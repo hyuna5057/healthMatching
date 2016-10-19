@@ -24,6 +24,26 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+	
+<script>
+
+var seoul=['양재동','석촌'];
+
+ function change2(){
+	var cnt =$('#SiDoList option:selected').val();
+	if(cnt==1){
+		for(var i = 0 ; i<seoul.length;i++){
+			
+	 	$('#GuGunList').append($('<option>', {
+	 	    value: i,
+	 	    text: seoul[i]
+	 	}));
+			
+		}
+	}
+ }  
+</script>
+
 </head><!--/head-->
 
 <body>
@@ -116,8 +136,8 @@
 								
                                         <span>
 											<span class="select_custom">
+												<select name="SiDoList" id="SiDoList" onchange="change2()">
 												<span id="SiDo">도/시</span>
-												<select name="SiDoList" id="SiDoList" onchange="goInint();">
 													<option selected="selected" value="">도/시</option>
 													<option value="1">서울</option>
 													<option value="2">부산</option>
@@ -136,7 +156,7 @@
 													<option value="15">경북</option>
 													<option value="16">경남</option>
 													<option value="17">제주</option>
-												
+												<!--여기  -->
 												</select>						
 											</span>
 										</span>&nbsp&nbsp
@@ -146,7 +166,12 @@
 										<span id="GuGun">구/군</span>
 											<select name="GuGunList" id="GuGunList" onchange="goSearchStore();">
 												<option selected="selected" value="">구/군</option>
-
+												<div id="add1">
+												
+												
+												</div>
+												
+													
 											</select>
 										</span>
 									</span>&nbsp&nbsp
@@ -422,7 +447,8 @@
     <script src="js/jquery.isotope.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/wow.min.js"></script>
-<script type="text/javascript">
+  
+<!-- <script type="text/javascript">
    
 	function goInint() {
         ddlGoGun.val("");
@@ -441,6 +467,6 @@
 
 	
 
-</script>
+</script> -->
 </body>
 </html>
