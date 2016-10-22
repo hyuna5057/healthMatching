@@ -1,0 +1,87 @@
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<script type="text/javascript">
+function charge(){
+	
+	opener.location.href="charge.action;"
+	
+	self.close();	
+}
+
+function money() {
+	var money = document.getElementById('credit').value;
+}
+
+
+
+</script>
+
+
+<style type="text/css">
+.button1 {
+	background-color:#37E6E0;
+	-moz-border-radius:31px;
+	-webkit-border-radius:31px;
+	border-radius:31px;
+	border:1px solid #37E6E0;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:22px;
+	padding:14px 23px;
+	text-decoration:none;
+	text-shadow:0px 0px 0px #283966;
+}
+.button1:hover {
+	background-color:#ABF7F5;
+}
+.button1:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+.button2 {
+	background-color:#ff6924;
+	-moz-border-radius:31px;
+	-webkit-border-radius:31px;
+	border-radius:31px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:22px;
+	padding:14px 23px;
+	text-decoration:none;
+	text-shadow:0px 0px 0px #283966;
+}
+.button2:hover {
+	background-color:#ed958a;
+}
+.button2:active {
+	position:relative;
+	top:1px;
+}
+
+
+</style>
+
+<meta charset="UTF-8">
+<title>충전~!</title>
+</head>
+<body>
+<s:property value="money"/>개
+<h2>크레딧 충전 하시겠습니까???</h2>
+
+<input type="button" value="YES!" class="button1" onclick="charge()"/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="button" value="NO!" class="button2" onclick="self.close();"/>
+</body>
+</html>
